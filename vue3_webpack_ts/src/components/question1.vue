@@ -5,12 +5,12 @@
     <br>
     <span v-if="[1,2,3].includes(a)">数组的includes</span>
     <br>
-    <span v-if="matchState(a,/[0,1,2]/)">方法</span>
+    <span v-if="matchState(a,/[0,1,2]/)">函数方法</span>
   </div>
 </template>
 
 <script lang="ts">
-import { reactive,  watch,  toRefs,  onMounted, ref,watchEffect } from 'vue'
+import { reactive,  watch,  toRefs,  onMounted, ref, watchEffect } from 'vue'
 export default {
   name: 'Question1',
   props: {
