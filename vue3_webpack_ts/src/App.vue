@@ -27,6 +27,8 @@
         <hr/>
         <Q3 class="section"/>
         <hr/>
+        <Q4 class="section"/>
+        <hr/>
       </el-col>
     </el-row>
     <el-backtop :right="70" :bottom="100" />
@@ -37,6 +39,7 @@ import Header from './components/header.vue'
 import Q1 from './components/question1.vue'
 import Q2 from './components/question2.vue'
 import Q3 from './components/question3.vue'
+import Q4 from './components/question4.vue'
 import { ElBacktop, ElMenu,  ElMenuItem, ElButton, ElCol, ElRow, ElAffix } from 'element-plus'
 import { reactive, toRefs, onMounted, watch } from 'vue'
 import  title  from './data/title'
@@ -47,6 +50,7 @@ export default {
     Q1,
     Q2,
     Q3,
+    Q4,
     ElBacktop,
     ElMenu,
     ElMenuItem,
@@ -244,6 +248,9 @@ export default {
   // }
   .el-backtop{
     --el-backtop-text-color: #00b96b;
+  }
+  :v-deep(.el-affix--fixed){
+    width: 100% !important;
   }
 }
 </style>

@@ -1,6 +1,7 @@
 <template>
-  <div class="question2">
-
+  <div class="question2" ref="question2Ref">
+    <h1>怎么获取dom元素</h1>
+    <el-button type="primary" @click="getDom">点击获取dom</el-button>
   </div>
 </template>
 
@@ -15,21 +16,30 @@ export default {
     const data = reactive({
       a: 1,
     })
+    const question2Ref = ref(null)
+
+    onMounted(() => {
+      methods.getDom()
+    })
+    
+    // }
     const methods = {
-      matchState:(state: any, reg: any)=>{
+      matchState:(state: any, reg: any) => {
           return !!String(state).match(reg)
+      },
+      getDom:() => {
+        console.log('question2 获取的Dom元素 :>> ', question2Ref.value);
       }
     }
     let msg = ref(0)
     watchEffect((msg) => (newVal: any, oldVal: any) => {
       console.log('val :>> ', oldVal, newVal,msg);
     })
-    onMounted(()=>{
-    })
     return {
         ...toRefs(data),
         ...methods,
-        msg
+        msg,
+        question2Ref,
     }
   }
 }
@@ -37,8 +47,9 @@ export default {
 
 <style scoped>
 .question2 {
-  height: 500px;
-  width: 100%;
-  background-color:bisque;
+  /* height: 500px; */
+  /* width: 100%;
+  background-color:bisque; */
+  /* min-height: 14px; */
 }
 </style>
