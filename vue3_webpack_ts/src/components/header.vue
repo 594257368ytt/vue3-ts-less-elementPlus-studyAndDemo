@@ -32,19 +32,16 @@ export default {
       currentTitle: ''
     })
     console.log('props :>> ', props.current, title);
-    if(props.current != undefined && props.current > -1){
-      // data.currentIndex = props.current
-      data.currentTitle = title.title[props.current].content
-    }
-
     const methods = {
       matchState:(state: any, reg: any)=>{
           return !!String(state).match(reg)
       }
     }
     let msg = ref(0)
-    watchEffect((msg) => (newVal: any, oldVal: any) => {
-      console.log('val :>> ', oldVal, newVal,msg);
+    watch(() => props.current, () => {
+      if(props.current != undefined && props.current > -1){
+      data.currentTitle = title.title[props.current].content
+    }
     })
     onMounted(()=>{
 

@@ -16,11 +16,12 @@
             </template>
           </el-menu>
         </el-affix>
-
         <div id="drap-meuline" />
       </el-col>
 
       <el-col :span="19" class="main-container">
+        <Vuex class="section"></Vuex>
+        <hr/>
         <Q1 class="section"/>
         <hr/>
         <Q2 class="section"/>
@@ -35,6 +36,7 @@
   </div>
 </template>
 <script lang="ts">
+import Vuex  from './components/vuex.vue'
 import Header from './components/header.vue'
 import Q1 from './components/question1.vue'
 import Q2 from './components/question2.vue'
@@ -46,6 +48,7 @@ import  title  from './data/title'
 export default {
   name: 'App',
   components: {
+    Vuex,
     Header,
     Q1,
     Q2,
@@ -77,6 +80,7 @@ export default {
         data.titleData = title.title
       },
       positionFun:(index: string)=>{
+
         // console.log('index :>> ', index);
         let jump:any = document.getElementsByClassName('section');
         // 获取需要滚动的距离
@@ -107,6 +111,7 @@ export default {
           // 如果滚动距离到了相应内容的区域
           if (data.scroll >= sections[i].offsetTop - 50) {
             data.currentNavIndex = i + 1 + '';
+            console.log('data.currentNavIndex :>> ', data.currentNavIndex);
             break;
           }
         }
@@ -184,6 +189,9 @@ export default {
   color: #2c3e50;
   h1{
     font-size: 24px;
+  }
+  h2{
+    font-size: 22px;
   }
   .adide-content{
       overflow: hidden;
