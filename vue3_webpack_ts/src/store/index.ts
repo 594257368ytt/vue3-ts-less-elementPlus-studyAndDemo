@@ -8,14 +8,14 @@ const moduleA = {
     userName:'moduleA'
   },
   getters:{
-    userName(state){
+    userName2(state){
       return state.userName + '，你好！'
     }
   }
 }
 
 const moduleB = {
-  // 给模块B开启命名空间
+  // 给模块B开启命名空间 
   namespaced: true,
   state:{
     userName:'moduleB',

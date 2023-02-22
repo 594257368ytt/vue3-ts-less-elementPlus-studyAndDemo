@@ -11,8 +11,8 @@
       <span>count: {{ $store.state.count }}</span><br>
       <el-button type="primary" @click="actionsFun">点我触发actions</el-button>
       <h2>模块化</h2>
-      <span>state：{{ $store.state.moduleA.userName }}</span><br>
-      <span>getters：（没有定义命名空间直接$store.getters可以获取到）{{ $store.getters.userName }}</span><br>
+      <span>state：{{ $store.state.moduleA.userName2 }}</span><br>
+      <span>getters：（没有定义命名空间直接$store.getters可以获取到）{{ $store.getters.userName2 }}</span><br>
       <span>getters：（定义了命名空间 $store.getters['']可以获取到）{{  $store.getters["moduleB/newName"] }}</span><br>
       <el-button type="primary" @click="mutationBFun">点我触发模块B mutations</el-button><br>
       <span>{{  $store.state.moduleB.count }}</span><br>
@@ -20,13 +20,15 @@
       <h2>文件夹模块化</h2>
       <span>user/账户：{{ $store.state.user.profile.account }}</span><br>
       <el-button type="primary" @click="$store.commit('user/setUser',{ account:'牛牛' })">点击显示用户名，刷新页面消失</el-button>
-      
+      <h2>测试请求函数</h2>
+      <el-button type="primary" @click="fn">点击</el-button>
     </div>
 </template>
   
   <script lang="ts">
   import { reactive,  watch,  toRefs,  onMounted, ref, watchEffect } from 'vue'
   import { useStore } from 'vuex'
+  import request from '../utils/request'
 
   export default {
     name: 'Question5',
@@ -42,17 +44,20 @@
       })
 
       const methods = {
-        mutationFun:()=>{
+        mutationFun:() => {
           store.commit("updateName")
         },
-        actionsFun:()=>{
+        actionsFun:() => {
           store.dispatch("increateAsync", 1)
         },
-        mutationBFun:()=>{
+        mutationBFun:() => {
           store.commit("moduleB/updateName")
         },
-        actionsBFun:()=>{
+        actionsBFun:() => {
           store.dispatch('moduleB/increateAsync', 6)
+        },
+        fn:() => {
+          request('/member/profile', 'get', { a: 10 })
         }
       }
       return {

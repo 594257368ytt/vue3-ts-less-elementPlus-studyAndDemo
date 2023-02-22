@@ -29,6 +29,10 @@
         <Q3 class="section"/>
         <hr/>
         <Q4 class="section"/>
+        <h3>11111111</h3>
+        <h3>11111111</h3>
+        <h3>11111111</h3>
+        <h3>11111111</h3>
         <hr/>
       </el-col>
     </el-row>
@@ -250,15 +254,20 @@ export default {
   .adide-content{
     color: #262626a9;
   }
-  // .main-container{
-  //   position: sticky;
-  //   top: 50px;
-  // }
+  .main-container{
+    .section:nth-child(odd){
+      background-color:#f5f7fa;
+      transition: background-color .2s;
+    }
+  }
   .el-backtop{
     --el-backtop-text-color: #00b96b;
   }
   :v-deep(.el-affix--fixed){
     width: 100% !important;
+  }
+  h3:nth-child(odd){
+    background-color:#f5f7fa;
   }
 }
 </style>
