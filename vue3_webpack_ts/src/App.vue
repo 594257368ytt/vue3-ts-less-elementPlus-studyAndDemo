@@ -22,6 +22,8 @@
       <el-col :span="19" class="main-container">
         <Vuex class="section"></Vuex>
         <hr/>
+        <ts class="section"/>
+        <hr/>
         <Q1 class="section"/>
         <hr/>
         <Q2 class="section"/>
@@ -46,6 +48,7 @@ import Q1 from './components/question1.vue'
 import Q2 from './components/question2.vue'
 import Q3 from './components/question3.vue'
 import Q4 from './components/question4.vue'
+import ts from './components/typescript.vue'
 import { ElBacktop, ElMenu,  ElMenuItem, ElButton, ElCol, ElRow, ElAffix } from 'element-plus'
 import { reactive, toRefs, onMounted, watch } from 'vue'
 import  title  from './data/title'
@@ -58,6 +61,7 @@ export default {
     Q2,
     Q3,
     Q4,
+    ts,
     ElBacktop,
     ElMenu,
     ElMenuItem,
@@ -137,17 +141,17 @@ export default {
       var sidebarWidth = <HTMLElement>document.getElementsByClassName("sidebar-container")[0];
         
       // // 监听页面滚动事件
-      drapLine.onmousedown = function (e) {
+      drapLine.onmousedown = function (e: MouseEvent) {
         // 设置最大/最小宽度
         var max_width = 480;
         var min_width = 236;
         let mouse_x = 0;  // 记录鼠标相对left盒子x轴位置
         e.preventDefault(); // 阻止默认事件
-        const _e = e || window.event;
+        const _e: MouseEvent = e || window.event;
         mouse_x = _e.clientX - menuleft.offsetWidth;
-        document.onmousemove = function (e_) {
+        document.onmousemove = function (e_: MouseEvent) {
           // console.log(min_width, max_width);
-          const _e_ = e_ || window.event;
+          const _e_: MouseEvent = e_ || window.event;
           let left_width = _e_.clientX - mouse_x;
 
           left_width = left_width < min_width ? min_width : left_width;

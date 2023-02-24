@@ -1,41 +1,46 @@
 {
   "compilerOptions": {
-    "target": "esnext",
-    "module": "esnext",
-    "strict": true,
-    "jsx": "preserve",
-    "moduleResolution": "node",
-    "experimentalDecorators": true,
-    "skipLibCheck": true,
-    "esModuleInterop": true,
-    "allowSyntheticDefaultImports": true,
-    "forceConsistentCasingInFileNames": true,
-    "useDefineForClassFields": true,
-    "sourceMap": true,
-    "noImplicitAny": false,
-    "baseUrl": ".",
+    "target": "ES6",  // 用来指定ts编译为ES的版本
+    // "module": "ES6",  // 指定要使用的模块化规范，例如commonjs
+    "outDir": "./dist",  //编译后的文件放在哪
+    "outFile": "./dist/app.js",  // 将代码合并输出到一个文件
+    "allowJs": true,  // 是否编译js
+    "checkJs": false, // 检查js语法
+    "removeComments": false, // 是否移除注释
+    "noEmit": false, // 不生成编译后的文件
+    "noEmitOnError": true, // 有错误时不生成编译文件
+    "alwaysStrict": false, // 严格模式
+    "noImplicitAny": false, // 不定义变量类型默认是any，any会关闭ts的类型检查，不允许出现隐式的any类型
+    "noImplicitThis": false, // 不允许不明确类型的this
+    "strictNullChecks": false, // 严格检查空值
+    "strict": false, // 所有严格检查的总开关
     "types": [
       "webpack-env"
     ],
     "paths": {
-      "@/*": [
-        "src/*"
-      ]
+      // "@/*": [
+      //   // "src/*"
+      // ]
     },
+    "preserveValueImports": false,  // 解决router中RouteRecordRaw报错
+    "moduleResolution": "node",  // 解决shims-vue.s.ts中的import { _RouteRecordBase } from 'vue-router';
+    "module": "system",  // 解决import vue-router报错
     "lib": [
       "esnext",
       "dom",
       "dom.iterable",
       "scripthost"
-    ]
+    ]                // 指定项目中要使用的库，引入donm就可以用document.代码中写的时候就有提示
   },
+  // 指定哪些ts文件需要被编译，**任意目录，*任意文件
   "include": [
-    "src/**/*.ts",
-    "src/**/*.tsx",
-    "src/**/*.vue",
-    "tests/**/*.ts",
-    "tests/**/*.tsx"
+    "src/**/*.ts",  // src目录下的任意文件夹下的所有ts
+    "src/**/*.tsx",  // tsx
+    "src/**/*.vue",   //vue
+    "src/**/*.d.ts",
+    "*.ts"
   ],
+  // 不编译哪些ts
   "exclude": [
     "node_modules"
   ]

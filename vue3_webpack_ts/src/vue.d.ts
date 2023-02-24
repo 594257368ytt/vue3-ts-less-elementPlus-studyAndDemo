@@ -1,5 +1,5 @@
 // vuex.d.ts
-import { ComponentCustomProperties } from '@/vue'
+// import { ComponentCustomProperties } from '@/vue'
 import { Store } from 'vuex'
 
 declare module '@vue/runtime-core' {
@@ -11,6 +11,6 @@ declare module '@vue/runtime-core' {
 
   // provide typings for `this.$store`
   interface ComponentCustomProperties {
-    $store: Store<State>
+    $store: typeof Store
   }
 }
