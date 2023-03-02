@@ -15,7 +15,16 @@ declare module 'vue-router'{
         hidden?: boolean | string | number
     }
 }
-// declare module "*.vue" {
-//   import Vue from 'vue'
-//   export default Vue
-// }
+// import { ComponentCustomPropertie s } from 'vue'
+import { Store } from 'vuex'
+
+declare module '@vue/runtime-core' {
+  // Declare your own store states.
+  interface State {
+    count: number
+  }
+
+  interface ComponentCustomProperties {
+    $store: Store<State>
+  }
+}

@@ -21,8 +21,6 @@ export default {
     onMounted(() => {
       methods.getDom()
     })
-    
-    // }
     const methods = {
       matchState:(state: any, reg: any) => {
           return !!String(state).match(reg)
@@ -44,12 +42,3 @@ export default {
   }
 }
 </script>
-
-<style scoped>
-.question2 {
-  /* height: 500px; */
-  /* width: 100%;
-  background-color:bisque; */
-  /* min-height: 14px; */
-}
-</style>

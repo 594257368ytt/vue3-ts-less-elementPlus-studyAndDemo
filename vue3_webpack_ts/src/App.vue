@@ -2,7 +2,7 @@
   <div>
     <el-affix :offset="0">
         <Header :current = "Number(currentNavIndex) - 1"></Header>
-      </el-affix>
+    </el-affix>
     <el-row>
       <el-col :span="5" class="sidebar-container">
         <el-affix :offset="50">
@@ -147,11 +147,11 @@ export default {
         var min_width = 236;
         let mouse_x = 0;  // 记录鼠标相对left盒子x轴位置
         e.preventDefault(); // 阻止默认事件
-        const _e: MouseEvent = e || window.event;
+        const _e: MouseEvent = (e || window.event) as MouseEvent;
         mouse_x = _e.clientX - menuleft.offsetWidth;
         document.onmousemove = function (e_: MouseEvent) {
           // console.log(min_width, max_width);
-          const _e_: MouseEvent = e_ || window.event;
+          const _e_: MouseEvent = (e_ || window.event) as MouseEvent;;
           let left_width = _e_.clientX - mouse_x;
 
           left_width = left_width < min_width ? min_width : left_width;

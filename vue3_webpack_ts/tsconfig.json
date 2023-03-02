@@ -24,7 +24,7 @@
     },
     "preserveValueImports": false,  // 解决router中RouteRecordRaw报错
     "moduleResolution": "node",  // 解决shims-vue.s.ts中的import { _RouteRecordBase } from 'vue-router';
-    "module": "system",  // 解决import vue-router报错
+    // "module": "system",  // 解决import vue-router报错
     "lib": [
       "esnext",
       "dom",
