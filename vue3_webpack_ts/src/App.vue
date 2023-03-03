@@ -31,10 +31,12 @@
         <Q3 class="section"/>
         <hr/>
         <Q4 class="section"/>
+        <hr/>
+        <Q5 class="section"/>
+        <!-- <h3>11111111</h3>
         <h3>11111111</h3>
         <h3>11111111</h3>
-        <h3>11111111</h3>
-        <h3>11111111</h3>
+        <h3>11111111</h3> -->
         <hr/>
       </el-col>
     </el-row>
@@ -48,6 +50,7 @@ import Q1 from './components/question1.vue'
 import Q2 from './components/question2.vue'
 import Q3 from './components/question3.vue'
 import Q4 from './components/question4.vue'
+import Q5 from './components/question5.vue'
 import ts from './components/typescript.vue'
 import { ElBacktop, ElMenu,  ElMenuItem, ElButton, ElCol, ElRow, ElAffix } from 'element-plus'
 import { reactive, toRefs, onMounted, watch } from 'vue'
@@ -61,6 +64,7 @@ export default {
     Q2,
     Q3,
     Q4,
+    Q5,
     ts,
     ElBacktop,
     ElMenu,

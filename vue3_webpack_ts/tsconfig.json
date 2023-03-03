@@ -1,9 +1,9 @@
 {
   "compilerOptions": {
     "target": "ES6",  // 用来指定ts编译为ES的版本
-    // "module": "ES6",  // 指定要使用的模块化规范，例如commonjs
-    "outDir": "./dist",  //编译后的文件放在哪
-    "outFile": "./dist/app.js",  // 将代码合并输出到一个文件
+    "module": "amd",  // 指定要使用的模块化规范，例如commonjs
+    // "outDir": "./dist",  //编译后的文件放在哪
+    "outFile": "./dist/bundle.js",  // 将代码合并输出到一个文件，这里需要设置module为amd或者system
     "allowJs": true,  // 是否编译js
     "checkJs": false, // 检查js语法
     "removeComments": false, // 是否移除注释

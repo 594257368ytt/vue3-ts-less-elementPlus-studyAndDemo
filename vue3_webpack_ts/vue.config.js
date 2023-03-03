@@ -1,4 +1,7 @@
 const { defineConfig } = require('@vue/cli-service')
+const CompressionWebpackPlugin = require('compression-webpack-plugin')    //引入插件
+const productionGzipExtensions = ['js', 'css']      //压缩js 和css文件
+
 module.exports = defineConfig({
   devServer: {
     host: '0.0.0.0',
