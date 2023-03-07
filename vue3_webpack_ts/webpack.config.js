@@ -1,4 +1,6 @@
 const path = require('path')
+//引入html插件
+const HTMLWebpackPlugin = require('html-webpack-plugin')
 module.exports = {
   entry: "./src/main.ts",
   output: {
@@ -17,5 +19,9 @@ module.exports = {
       }
     ]
   },
+  // 配置webpack插件
+  plugins:[
+    new HTMLWebpackPlugin(),
+  ],
   mode: "development",
 }

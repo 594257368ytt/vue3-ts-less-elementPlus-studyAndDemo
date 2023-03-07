@@ -1,4 +1,4 @@
-// import { IfNever } from "element-plus/es/utils"
+// ts的基本语法
 
 // 声明a，类型只能是数字，赋值其他的会报错
 let a: number

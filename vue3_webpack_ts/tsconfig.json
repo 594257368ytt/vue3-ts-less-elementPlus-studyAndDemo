@@ -8,7 +8,7 @@
     "checkJs": false, // 检查js语法
     "removeComments": false, // 是否移除注释
     "noEmit": false, // 不生成编译后的文件
-    "noEmitOnError": true, // 有错误时不生成编译文件
+    "noEmitOnError": true, // 有错误时不生成编译文件,不然ts有些限制报错了也编译了比如私有变量赋值，编译成js后赋值成功
     "alwaysStrict": false, // 严格模式
     "noImplicitAny": false, // 不定义变量类型默认是any，any会关闭ts的类型检查，不允许出现隐式的any类型
     "noImplicitThis": false, // 不允许不明确类型的this
