@@ -7,7 +7,6 @@
     <el-button type="primary" @click="abstractClass.fun()" style="margin-top: 5px">点击显示抽象类</el-button><br>
     <el-button type="primary" @click="interfaceClass.fun()" style="margin-top: 5px">点击显示接口</el-button><br>
     <el-button type="primary" @click="encapsulation.fun()" style="margin-top: 5px">点击属性封装</el-button><br>
-    <el-button type="primary" @click="generic.fun()" style="margin-top: 5px">点击泛型</el-button><br>
   </div>
 </template>
 
@@ -18,7 +17,6 @@ import inherit from '../tsStudy/ts05'
 import abstractClass from '../tsStudy/ts06'
 import interfaceClass from '../tsStudy/ts07'
 import encapsulation from '../tsStudy/ts08'
-import generic from '../tsStudy/ts09'
 
 export default {
   name: 'typescript',
@@ -30,7 +28,6 @@ export default {
         abstractClass,
         interfaceClass,
         encapsulation,
-        generic
     }
   }
 }
