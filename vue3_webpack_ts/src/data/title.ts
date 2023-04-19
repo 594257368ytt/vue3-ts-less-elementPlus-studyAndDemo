@@ -18,7 +18,13 @@ const title = [
         content:'ref、toRef、toRefs区别'
     },{
         index: 6,
-        content:'4444444444444444444'
+        content:'异步'
+    },{
+        index: 7,
+        content:'右键单独触发'
+    },{
+        index: 8,
+        content:'画不同颜色的点'
     }
 ]
 export default {

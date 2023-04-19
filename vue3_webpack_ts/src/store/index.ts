@@ -58,7 +58,7 @@ export default createStore({
     updateName(state){
       state.userName = '姚哭哭'
     },
-    increate(state,payload){
+    increate(state, payload){
       state.count += payload
     },
   },

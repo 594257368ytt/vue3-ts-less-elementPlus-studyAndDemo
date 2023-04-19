@@ -1,22 +1,6 @@
 <template>
   <div class="question5">
-    <template v-for="( item, index) in a">
-      <el-popover
-        placement="bottom"
-        title="Title"
-        :width="200"
-        content="`this is content, this is content, this is content`"
-        :visible="visibles[index]"
-      >
-      {{ item.id }}
-      <el-button size="small" style="margin-left: 14px;margin-right: 10px;" type="primary" @click="onMark(index)">确认</el-button>
-      <template #reference>
-          <span @contextmenu="showPop(a.length, index)">
-              <el-button class="iconfont icon icon-xiaohongqi" size="small" circle></el-button>
-          </span> 
-      </template>
-      </el-popover>
-    </template>
+    错误示范：点击一个点弹出三个弹窗
     <br>
     <template v-for="( item, index) in a">
       <el-popover
@@ -36,18 +20,48 @@
       </template>
       </el-popover>
     </template>
+    <br>
+    解决方案1：visible属性弄成数组，那些需要显示那个不需要显示
+    <br>
+    <template v-for="( item, index) in a">
+      <el-popover
+        placement="bottom"
+        title="Title"
+        :width="200"
+        content="`this is content, this is content, this is content`"
+        :visible="visibles[index]"
+      >
+      {{ item.id }}
+      <el-button size="small" style="margin-left: 14px;margin-right: 10px;" type="primary" @click="onMark(index)">确认</el-button>
+      <template #reference>
+          <span @contextmenu.prevent="showPop(a.length, index)">
+              <el-button class="iconfont icon icon-xiaohongqi" size="small" circle></el-button>
+          </span> 
+      </template>
+      </el-popover>
+    </template>
+    <br>
+    解决方案2：抽组件
+    <br>
+    <template v-for="item in a">
+      <popover :item="item"></popover>
+    </template>
   </div>
 </template>
 
 <script lang="ts">
 import { reactive, toRefs,  onMounted, ref,watchEffect, toRaw } from 'vue'
+import popover from './popover/popover.vue'
+
 export default {
   name: 'Question5',
   props: {
     msg: String
   },
+  components:{
+    popover
+  },
   setup() {
-    // let visible = ref(false)
     const data = reactive({
       a: [{id:1},{id:2},{id:3}],
       visible : false,
@@ -77,10 +91,8 @@ export default {
         data.visibles[index] = false
       },
       onMark2:(index)=>{
-        console.log('popoverName :>> ', toRaw(popoverName.value));
-        debugger
-        popoverName.value[`popover-${index}`].doClose()
-        // this.$refs[`popover-${scope.$index}`].doClose()
+        // popoverName.value[`popover-${index}`].doClose()
+        data.visible = false
       }
     }
     let msg = ref(0)
@@ -101,8 +113,9 @@ export default {
 
 <style scoped>
 .question5 {
-  height: 500px;
+  /* height: 500px; */
   width: 100%;
   background-color:cornflowerblue;
+  /* min-width: 1500px; */
 }
 </style>

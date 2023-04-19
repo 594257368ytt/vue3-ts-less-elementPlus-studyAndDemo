@@ -6,7 +6,7 @@
       <span class="current-title">{{ currentTitle }}</span>
     </div>
     <div class="header-btns">
-      <el-button type="primary"><el-icon><User /></el-icon>登录/注册</el-button>
+      <el-button type="primary" @click="toLogin"><el-icon><User /></el-icon>登录/注册</el-button>
       <el-button><el-icon><ChatLineRound /></el-icon> 评论</el-button>
     </div>
   </div>
@@ -17,8 +17,9 @@ import { ElButton , ElIcon} from 'element-plus'
 import { reactive, watch, toRefs, onMounted, ref, watchEffect } from 'vue'
 // import Icons from 'unplugin-icons/vite'
 import  title  from '../data/title'
+import { useRouter } from 'vue-router'
 export default {
-  name: 'header',
+  name: 'headerBar',
   props: {
     current: Number
   },
@@ -27,21 +28,22 @@ export default {
     ElIcon
   },
   setup(props) {
+    const router = useRouter()
     const data = reactive({
       a: 1,
       currentTitle: ''
     })
-    console.log('props :>> ', props.current, title);
+    // console.log('props :>> ', props.current, title);
     const methods = {
-      matchState:(state: any, reg: any)=>{
-          return !!String(state).match(reg)
+      toLogin:()=>{
+        router.push('/login')
       }
     }
     let msg = ref(0)
     watch(() => props.current, () => {
       if(props.current != undefined && props.current > -1){
-      data.currentTitle = title.title[props.current].content
-    }
+        data.currentTitle = title.title[props.current].content
+      }
     })
     onMounted(()=>{
 

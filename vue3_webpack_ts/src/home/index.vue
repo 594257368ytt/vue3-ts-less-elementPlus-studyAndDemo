@@ -35,6 +35,8 @@
         <hr/>
         <Q5 class="section"/>
         <hr/>
+        <Q6 class="section"/>
+        <hr/>
       </el-col>
     </el-row>
     <el-backtop :right="70" :bottom="100" />
@@ -48,6 +50,7 @@ import Q2 from '../components/question2.vue'
 import Q3 from '../components/question3.vue'
 import Q4 from '../components/question4.vue'
 import Q5 from '../components/question5.vue'
+import Q6 from '../components/question6.vue'
 import ts from '../components/typescript.vue'
 import { ElBacktop, ElMenu,  ElMenuItem, ElButton, ElCol, ElRow, ElAffix } from 'element-plus'
 import { reactive, toRefs, onMounted, watch } from 'vue'
@@ -62,6 +65,7 @@ export default {
     Q3,
     Q4,
     Q5,
+    Q6,
     ts,
     ElBacktop,
     ElMenu,
@@ -254,6 +258,7 @@ h2{
   color: #262626a9;
 }
 .main-container{
+  // min-width: 900px;
   flex:1 !important;
   max-width: 100% !important;
   .section:nth-child(odd){
